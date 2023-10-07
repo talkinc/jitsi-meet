@@ -148,6 +148,13 @@ function getConfig(options = {}) {
                     'style-loader',
                     'css-loader'
                 ]
+            },{
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
             }, {
                 test: /\.svg$/,
                 use: [ {
@@ -238,7 +245,7 @@ function getDevServerConfig() {
                 warnings: false
             }
         },
-        host: '127.0.0.1',
+        host: 'localhost',
         hot: true,
         proxy: {
             '/': {

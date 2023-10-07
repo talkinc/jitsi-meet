@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/jitsi/jitsi-meet"
+    "url": "git://github.com/talkinc/jitsi-meet"
   },
   "keywords": [
     "jingle",
