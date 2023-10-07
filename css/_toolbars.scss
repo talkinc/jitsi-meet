@@ -93,6 +93,7 @@
     border-radius: 6px;
 
     .toolbox-content-items {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -102,6 +103,17 @@
       gap: 10px;
       padding: 8px;
       boxShadow: -1px -1px 0px 0px #FFFFFF6B;
+        .toolbox-timer {
+            position: absolute !important;
+            margin-left: 32px !important;
+            font-size: 16px !important;
+            left: 0 !important;
+        }
+        .toolbox-fullscreen {
+            position: absolute !important;
+            margin-right: 32px !important;
+            right: 0 !important;
+        }
     }
 }
 

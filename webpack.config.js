@@ -1,6 +1,7 @@
 /* global __dirname */
 
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const { join, resolve } = require('path');
 const process = require('process');
@@ -101,32 +102,17 @@ function getConfig(options = {}) {
         mode: isProduction ? 'production' : 'development',
         module: {
             rules: [ {
-                // Transpile ES2015 (aka ES6) to ES5. Accept the JSX syntax by React
-                // as well.
-
                 loader: 'babel-loader',
                 options: {
-                    // Avoid loading babel.config.js, since we only use it for React Native.
                     configFile: false,
-
-                    // XXX The require.resolve below solves failures to locate the
-                    // presets when lib-jitsi-meet, for example, is npm linked in
-                    // jitsi-meet.
                     plugins: [
                         require.resolve('@babel/plugin-proposal-export-default-from')
                     ],
                     presets: [
                         [
                             require.resolve('@babel/preset-env'),
-
-                            // Tell babel to avoid compiling imports into CommonJS
-                            // so that webpack may do tree shaking.
                             {
                                 modules: false,
-
-                                // Specify our target browsers so no transpiling is
-                                // done unnecessarily. For browsers not specified
-                                // here, the ES2015+ profile will be used.
                                 targets: {
                                     chrome: 80,
                                     electron: 10,
@@ -141,7 +127,6 @@ function getConfig(options = {}) {
                 },
                 test: /\.jsx?$/
             }, {
-                // Allow CSS to be imported into JavaScript.
 
                 test: /\.css$/,
                 use: [
@@ -297,7 +282,8 @@ module.exports = (_env, argv) => {
                 }),
                 new webpack.ProvidePlugin({
                     process: 'process/browser'
-                })
+                }),
+                new HtmlWebpackPlugin()
             ],
 
             performance: getPerformanceHints(perfHintOptions, 5 * 1024 * 1024)

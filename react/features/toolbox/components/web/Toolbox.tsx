@@ -39,6 +39,7 @@ import HangupMenuButton from './HangupMenuButton';
 import { LeaveConferenceButton } from './LeaveConferenceButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import Separator from './Separator';
+import ConferenceTimer from "../../../conference/components/ConferenceTimer";
 
 /**
  * The type of the React {@code Component} props of {@link Toolbox}.
@@ -364,13 +365,14 @@ const Toolbox = ({
         const shareScreen = mainMenuButtons.filter(({key}) => key === 'desktop');
         const camera = mainMenuButtons.filter(({key}) => key === 'camera');
         const microphone = mainMenuButtons.filter(({key}) => key === 'microphone');
-
+        const fullScreen = overflowMenuButtons.filter(({key}) => key === 'fullscreen');
         const raiseHandInOverflowMenu = overflowMenuButtons.some(({ key }) => key === 'raisehand');
         const showReactionsInOverflowMenu
             = (_reactionsEnabled && !_reactionsButtonEnabled
                 && (raiseHandInOverflowMenu || _isNarrowLayout || _isMobile))
             || overflowMenuButtons.some(({ key }) => key === 'reactions');
         const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
+
 
         return (
             <div className = { containerClassName }>
@@ -381,10 +383,14 @@ const Toolbox = ({
                         onMouseOut,
                         onMouseOver
                     }) }>
-
                     <div
                         className = 'toolbox-content-items'
                         ref = { _toolboxRef }>
+                        <ConferenceTimer textStyle={{
+                            position: 'absolute',
+                            width: 152,
+                            height: 28,
+                        }} />
                         {shareScreen.map(({ Content, key, ...rest }) => Content !== Separator && (
                             <Content
                                 { ...rest }
@@ -466,6 +472,15 @@ const Toolbox = ({
                                 showRaiseHandInReactionsMenu = { showRaiseHandInReactionsMenu }
                                 showReactionsMenu = { showReactionsInOverflowMenu } />
                         )}
+
+                        {fullScreen.map(({ Content, key, ...rest }) => Content !== Separator && (
+                            <div className={'toolbox-fullscreen'}>
+                                <Content
+                                    { ...rest }
+                                    buttonKey = { key }
+                                    key = { key } />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
