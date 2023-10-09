@@ -39,6 +39,7 @@ import HangupMenuButton from './HangupMenuButton';
 import { LeaveConferenceButton } from './LeaveConferenceButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import Separator from './Separator';
+import ConferenceTimer from "../../../conference/components/ConferenceTimer";
 
 /**
  * The type of the React {@code Component} props of {@link Toolbox}.
@@ -361,12 +362,17 @@ const Toolbox = ({
         const containerClassName = `toolbox-content${_isMobile || _isNarrowLayout ? ' toolbox-content-mobile' : ''}`;
 
         const { mainMenuButtons, overflowMenuButtons } = getVisibleButtons();
+        const shareScreen = mainMenuButtons.filter(({key}) => key === 'desktop');
+        const camera = mainMenuButtons.filter(({key}) => key === 'camera');
+        const microphone = mainMenuButtons.filter(({key}) => key === 'microphone');
+        const fullScreen = overflowMenuButtons.filter(({key}) => key === 'fullscreen');
         const raiseHandInOverflowMenu = overflowMenuButtons.some(({ key }) => key === 'raisehand');
         const showReactionsInOverflowMenu
             = (_reactionsEnabled && !_reactionsButtonEnabled
                 && (raiseHandInOverflowMenu || _isNarrowLayout || _isMobile))
             || overflowMenuButtons.some(({ key }) => key === 'reactions');
         const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
+
 
         return (
             <div className = { containerClassName }>
@@ -377,50 +383,24 @@ const Toolbox = ({
                         onMouseOut,
                         onMouseOver
                     }) }>
-
                     <div
                         className = 'toolbox-content-items'
                         ref = { _toolboxRef }>
-                        {mainMenuButtons.map(({ Content, key, ...rest }) => Content !== Separator && (
+                        <ConferenceTimer textStyle={{
+                            position: 'absolute',
+                            width: 152,
+                            height: 28,
+                        }} />
+                        {shareScreen.map(({ Content, key, ...rest }) => Content !== Separator && (
                             <Content
                                 { ...rest }
                                 buttonKey = { key }
                                 key = { key } />))}
-
-                        {Boolean(overflowMenuButtons.length) && (
-                            <OverflowMenuButton
-                                ariaControls = 'overflow-menu'
-                                buttons = { overflowMenuButtons.reduce<Array<IToolboxButton[]>>((acc, val) => {
-                                    if (val.key === 'reactions' && showReactionsInOverflowMenu) {
-                                        return acc;
-                                    }
-
-                                    if (val.key === 'raisehand' && showRaiseHandInReactionsMenu) {
-                                        return acc;
-                                    }
-
-                                    if (acc.length) {
-                                        const prev = acc[acc.length - 1];
-                                        const group = prev[prev.length - 1].group;
-
-                                        if (group === val.group) {
-                                            prev.push(val);
-                                        } else {
-                                            acc.push([ val ]);
-                                        }
-                                    } else {
-                                        acc.push([ val ]);
-                                    }
-
-                                    return acc;
-                                }, []) }
-                                isOpen = { _overflowMenuVisible }
-                                key = 'overflow-menu'
-                                onToolboxEscKey = { onEscKey }
-                                onVisibilityChange = { onSetOverflowVisible }
-                                showRaiseHandInReactionsMenu = { showRaiseHandInReactionsMenu }
-                                showReactionsMenu = { showReactionsInOverflowMenu } />
-                        )}
+                        {camera.map(({ Content, key, ...rest }) => Content !== Separator && (
+                            <Content
+                                { ...rest }
+                                buttonKey = { key }
+                                key = { key } />))}
 
                         {isToolbarButtonEnabled('hangup', _toolbarButtons) && (
                             _endConferenceSupported
@@ -454,6 +434,53 @@ const Toolbox = ({
                                     notifyMode = { getButtonNotifyMode('hangup', _buttonsWithNotifyClick) }
                                     visible = { isToolbarButtonEnabled('hangup', _toolbarButtons) } />
                         )}
+                        {microphone.map(({ Content, key, ...rest }) => Content !== Separator && (
+                            <Content
+                                { ...rest }
+                                buttonKey = { key }
+                                key = { key } />))}
+
+                        {Boolean(overflowMenuButtons.length) && (
+                            <OverflowMenuButton
+                                ariaControls = 'overflow-menu'
+                                buttons = { overflowMenuButtons.reduce<Array<IToolboxButton[]>>((acc, val) => {
+                                    if (val.key === 'reactions' && showReactionsInOverflowMenu) {
+                                    }
+
+                                    if (val.key === 'raisehand' && showRaiseHandInReactionsMenu) {
+                                    }
+
+                                    if (acc.length) {
+                                        const prev = acc[acc.length - 1];
+                                        const group = prev[prev.length - 1].group;
+
+                                        if (group === val.group) {
+                                            prev.push(val);
+                                        } else {
+                                            acc.push([ val ]);
+                                        }
+                                    } else {
+                                        acc.push([ val ]);
+                                    }
+
+                                    return acc;
+                                }, []) }
+                                isOpen = { _overflowMenuVisible }
+                                key = 'overflow-menu'
+                                onToolboxEscKey = { onEscKey }
+                                onVisibilityChange = { onSetOverflowVisible }
+                                showRaiseHandInReactionsMenu = { showRaiseHandInReactionsMenu }
+                                showReactionsMenu = { showReactionsInOverflowMenu } />
+                        )}
+
+                        {fullScreen.map(({ Content, key, ...rest }) => Content !== Separator && (
+                            <div className={'toolbox-fullscreen'}>
+                                <Content
+                                    { ...rest }
+                                    buttonKey = { key }
+                                    key = { key } />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

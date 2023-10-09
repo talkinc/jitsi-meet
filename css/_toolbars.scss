@@ -1,6 +1,12 @@
 /**
  * Round badge.
  */
+
+.toolbox-icon {
+    background: #FFFFFF1A;
+    border-radius: 34px !important;
+}
+
 .badge-round {
     background-color: #165ECC;
     border-radius: 50%;
@@ -87,7 +93,27 @@
     border-radius: 6px;
 
     .toolbox-content-items {
-        @include ltr;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 660px;
+      background: linear-gradient(270deg, rgba(96, 96, 96, 0.6) 0%, rgba(58, 58, 58, 0.6) 100%, rgba(111, 111, 111, 0.6) 100%);
+      border-radius: 50px;
+      gap: 10px;
+      padding: 8px;
+      boxShadow: -1px -1px 0px 0px #FFFFFF6B;
+        .toolbox-timer {
+            position: absolute !important;
+            margin-left: 32px !important;
+            font-size: 16px !important;
+            left: 0 !important;
+        }
+        .toolbox-fullscreen {
+            position: absolute !important;
+            margin-right: 32px !important;
+            right: 0 !important;
+        }
     }
 }
 
@@ -104,7 +130,10 @@
 }
 
 div.hangup-button {
-    background-color: #CB2233;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px !important;
+    background-color: #F8000F;
 
     @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -122,7 +151,10 @@ div.hangup-button {
 }
 
 div.hangup-menu-button {
-    background-color: #CB2233;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    background-color: #F8000F;
 
     @media (hover: hover) and (pointer: fine) {
         &:hover {

@@ -254,14 +254,14 @@ export const commonStyles = (theme: Theme) => {
         },
 
         '.toolbox-content-items': {
-            background: theme.palette.ui01,
-            borderRadius: 6,
+            background: 'linear-gradient(270deg, rgba(96, 96, 96, 0.6) 0%, rgba(58, 58, 58, 0.6) 100%, rgba(111, 111, 111, 0.6) 100%)',
+            borderRadius: 50,
             margin: '0 auto',
-            padding: 6,
+            padding: 20,
             textAlign: 'center' as const,
             pointerEvents: 'all' as const,
             display: 'flex',
-            boxShadow: '0px 2px 8px 4px rgba(0, 0, 0, 0.25), 0px 0px 0px 1px rgba(0, 0, 0, 0.15)',
+            boxShadow: '-1px -1px 0px 0px #FFFFFF6B',
 
             '& > div': {
                 marginRight: theme.spacing(2),
