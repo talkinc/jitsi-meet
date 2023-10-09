@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { translate } from '../../../base/i18n/functions';
-import { IconDotsHorizontal } from '../../../base/icons/svg';
+import { IconGear } from '../../../base/icons/svg';
 import AbstractButton, { IProps as AbstractButtonProps } from '../../../base/toolbox/components/AbstractButton';
 
 
@@ -27,7 +27,7 @@ interface IProps extends AbstractButtonProps {
 class OverflowToggleButton extends AbstractButton<IProps> {
     accessibilityLabel = 'toolbar.accessibilityLabel.moreActions';
     toggledAccessibilityLabel = 'toolbar.accessibilityLabel.closeMoreActions';
-    icon = IconDotsHorizontal;
+    icon = IconGear;
     label = 'toolbar.moreActions';
     toggledLabel = 'toolbar.moreActions';
     tooltip = 'toolbar.moreActions';

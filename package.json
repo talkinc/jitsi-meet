@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/jitsi/jitsi-meet"
+    "url": "git://github.com/talkinc/jitsi-meet"
   },
   "keywords": [
     "jingle",
@@ -164,6 +164,7 @@
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-native": "4.0.0",
     "eslint-plugin-typescript-sort-keys": "2.3.0",
+    "html-webpack-plugin": "^5.5.3",
     "jetifier": "1.6.4",
     "metro-react-native-babel-preset": "0.70.3",
     "patch-package": "6.4.7",
