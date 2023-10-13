@@ -13,6 +13,8 @@ import { isVpaasMeeting } from '../jaas/functions';
 import { clearNotifications, showNotification } from '../notifications/actions';
 import { NOTIFICATION_TIMEOUT_TYPE } from '../notifications/constants';
 import { isWelcomePageEnabled } from '../welcome/functions';
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
 
 import {
     maybeRedirectToTokenAuthUrl,

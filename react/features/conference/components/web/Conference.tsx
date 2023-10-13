@@ -36,6 +36,8 @@ import {
     abstractMapStateToProps
 } from '../AbstractConference';
 import type { AbstractProps } from '../AbstractConference';
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
 
 import ConferenceInfo from './ConferenceInfo';
 import { default as Notice } from './Notice';

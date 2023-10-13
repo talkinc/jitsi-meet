@@ -1,6 +1,8 @@
 import { IStateful } from '../base/app/types';
 import { toState } from '../base/redux/functions';
 import { getServerURL } from '../base/settings/functions.web';
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
 
 export * from './functions.any';
 

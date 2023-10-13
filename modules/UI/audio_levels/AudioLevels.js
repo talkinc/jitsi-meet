@@ -1,6 +1,7 @@
 /* global interfaceConfig */
 
 import UIUtil from '../util/UIUtil';
+import interfaceConfig from '../../../interface_config';
 
 /**
  * Responsible for drawing audio levels.

@@ -14,6 +14,8 @@ import { openChat } from '../../../chat/actions.web';
 import { NOTIFY_CLICK_MODE } from '../../../toolbox/constants';
 import { isButtonEnabled } from '../../../toolbox/functions.web';
 import { IButtonProps } from '../../types';
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
 
 interface IProps extends IButtonProps, WithTranslation {
 

@@ -8,7 +8,7 @@
  * config.js, and no new options should be added here.
  */
 
-var interfaceConfig = {
+const interfaceConfig = {
     APP_NAME: 'Jitsi Meet',
     AUDIO_LEVEL_PRIMARY_COLOR: 'rgba(255,255,255,0.4)',
     AUDIO_LEVEL_SECONDARY_COLOR: 'rgba(255,255,255,0.2)',
@@ -270,4 +270,5 @@ var interfaceConfig = {
     // No configuration value should follow this line.
 };
 
+export default interfaceConfig;
 /* eslint-enable no-unused-vars, no-var, max-len */

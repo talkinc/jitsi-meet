@@ -8,6 +8,8 @@ import DeepLinkingDesktopPage from './components/DeepLinkingDesktopPage';
 import DeepLinkingMobilePage from './components/DeepLinkingMobilePage';
 import NoMobileApp from './components/NoMobileApp';
 import { _openDesktopApp } from './openDesktopApp';
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
 
 /**
  * Generates a deep linking URL based on the current window URL.

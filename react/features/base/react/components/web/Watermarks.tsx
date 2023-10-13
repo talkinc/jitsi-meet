@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { IReduxState } from '../../../../app/types';
 import { isVpaasMeeting } from '../../../../jaas/functions';
 import { translate } from '../../../i18n/functions';
+// @ts-ignore
+import interfaceConfig from '../../../../../../interface_config';
 
 /**
  * The CSS style of the element with CSS class {@code rightwatermark}.

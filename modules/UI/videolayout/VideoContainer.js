@@ -17,6 +17,7 @@ import UIUtil from '../util/UIUtil';
 
 import Filmstrip from './Filmstrip';
 import LargeContainer from './LargeContainer';
+import interfaceConfig from '../../../interface_config';
 
 // FIXME should be 'video'
 export const VIDEO_CONTAINER_TYPE = 'camera';

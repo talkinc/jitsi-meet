@@ -14,6 +14,8 @@ import { openSettingsDialog } from '../../settings/actions.web';
 import { SETTINGS_TABS } from '../../settings/constants';
 import { refreshCalendar } from '../actions.web';
 import { ERRORS } from '../constants';
+// @ts-ignore
+import interfaceConfig from '../../../../interface_config';
 
 import CalendarListContent from './CalendarListContent.web';
 

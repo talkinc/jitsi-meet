@@ -63,6 +63,8 @@ import ThumbnailAudioIndicator from './ThumbnailAudioIndicator';
 import ThumbnailBottomIndicators from './ThumbnailBottomIndicators';
 import ThumbnailTopIndicators from './ThumbnailTopIndicators';
 import VirtualScreenshareParticipant from './VirtualScreenshareParticipant';
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
 
 /**
  * The type of the React {@code Component} state of {@link Thumbnail}.

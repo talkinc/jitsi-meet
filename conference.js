@@ -3,6 +3,7 @@
 import { jitsiLocalStorage } from '@jitsi/js-utils';
 import Logger from '@jitsi/logger';
 import EventEmitter from 'events';
+import interfaceConfig from "./interface_config";
 
 import { ENDPOINT_TEXT_MESSAGE_NAME } from './modules/API/constants';
 import { AUDIO_ONLY_SCREEN_SHARE_NO_TRACK } from './modules/UI/UIErrors';

@@ -13,6 +13,8 @@ import PinnedIndicator from './PinnedIndicator';
 import RaisedHandIndicator from './RaisedHandIndicator';
 import StatusIndicators from './StatusIndicators';
 import VideoMenuTriggerButton from './VideoMenuTriggerButton';
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
 
 interface IProps {
 

@@ -2,6 +2,8 @@ import BrowserLanguageDetector from 'i18next-browser-languagedetector';
 
 import configLanguageDetector from './configLanguageDetector';
 import customNavigatorDetector from './customNavigatorDetector';
+// @ts-ignore
+import interfaceConfig from '../../../../interface_config';
 
 /**
  * The ordered list (by name) of language detectors to be utilized as backends

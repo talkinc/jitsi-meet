@@ -19,6 +19,8 @@ import {
     isWhiteboardOpen,
     isWhiteboardVisible
 } from '../../functions';
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
 
 /**
  * Space taken by meeting elements like the subject and the watermark.

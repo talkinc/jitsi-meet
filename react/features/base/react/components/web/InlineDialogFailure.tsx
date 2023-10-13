@@ -4,6 +4,8 @@ import { makeStyles } from 'tss-react/mui';
 
 import { withPixelLineHeight } from '../../../styles/functions.web';
 import Button from '../../../ui/components/web/Button';
+// @ts-ignore
+import interfaceConfig from '../../../../../../interface_config';
 
 const useStyles = makeStyles()(theme => {
     return {

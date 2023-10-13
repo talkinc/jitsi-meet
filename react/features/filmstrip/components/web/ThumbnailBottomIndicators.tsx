@@ -9,6 +9,8 @@ import {
 } from '../../../base/config/functions.any';
 import { isScreenShareParticipantById } from '../../../base/participants/functions';
 import DisplayName from '../../../display-name/components/web/DisplayName';
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
 
 import StatusIndicators from './StatusIndicators';
 

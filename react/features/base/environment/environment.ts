@@ -4,6 +4,8 @@ import Platform from '../react/Platform';
 import { isMobileBrowser } from './utils';
 
 const { browser } = JitsiMeetJS.util;
+// @ts-ignore
+import interfaceConfig from '../../../../interface_config';
 
 const DEFAULT_OPTIMAL_BROWSERS = [
     'chrome',

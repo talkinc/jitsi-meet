@@ -8,6 +8,7 @@ import { getToolboxHeight } from '../../../react/features/toolbox/functions.web'
 import Filmstrip from '../videolayout/Filmstrip';
 import LargeContainer from '../videolayout/LargeContainer';
 import VideoLayout from '../videolayout/VideoLayout';
+import interfaceConfig from '../../../interface_config';
 
 
 /**

@@ -3,6 +3,8 @@ import _ from 'lodash';
 import { CONFERENCE_INFO } from '../../conference/components/constants';
 import ReducerRegistry from '../redux/ReducerRegistry';
 import { equals } from '../redux/functions';
+// @ts-ignore
+import interfaceConfig from '../../../../interface_config';
 
 import {
     CONFIG_WILL_LOAD,

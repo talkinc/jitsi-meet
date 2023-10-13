@@ -4,6 +4,7 @@ import {
     getVerticalFilmstripVisibleAreaWidth,
     isFilmstripVisible
 } from '../../../react/features/filmstrip/functions';
+import interfaceConfig from '../../../interface_config';
 
 const Filmstrip = {
     /**
