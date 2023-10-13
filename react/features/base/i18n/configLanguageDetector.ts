@@ -1,6 +1,9 @@
 
 declare let config: any;
 
+// @ts-ignore
+import config from '../../../../config';
+
 /**
  * Custom language detection, just returns the config property if any.
  */

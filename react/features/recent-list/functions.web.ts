@@ -1,6 +1,7 @@
 import { parseURIString, safeDecodeURIComponent } from '../base/util/uri';
 
-
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
 /**
  * Transforms the history list to a displayable list.
  *
