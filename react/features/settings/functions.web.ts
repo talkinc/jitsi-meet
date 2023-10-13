@@ -7,6 +7,8 @@ import { areKeyboardShortcutsEnabled, getKeyboardShortcutsHelpDescriptions } fro
 import { getParticipantsPaneConfig } from '../participants-pane/functions';
 import { isPrejoinPageVisible } from '../prejoin/functions';
 
+import interfaceConfig from '../../../interface_config';
+
 export * from './functions.any';
 
 /**

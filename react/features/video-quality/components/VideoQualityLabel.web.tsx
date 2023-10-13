@@ -10,6 +10,9 @@ import { COLORS } from '../../base/label/constants';
 import Tooltip from '../../base/tooltip/components/Tooltip';
 import { shouldDisplayTileView } from '../../video-layout/functions.web';
 
+// @ts-ignore
+import interfaceConfig from '../../../../interface_config';
+
 import VideoQualityDialog from './VideoQualityDialog.web';
 
 /**

@@ -17,6 +17,9 @@ import { iAmVisitor } from '../visitors/functions';
 
 import { shouldShowModeratorSettings } from './functions';
 
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
+
 /**
  * Returns true if user is allowed to change Server URL.
  *

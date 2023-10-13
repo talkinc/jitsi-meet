@@ -28,6 +28,9 @@ import {
 import logger from './logger';
 import { IInvitee } from './types';
 
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
+
 
 export const sharingFeatures = {
     email: 'email',

@@ -52,6 +52,9 @@ import ProfileTab from './ProfileTab';
 import ShortcutsTab from './ShortcutsTab';
 import VirtualBackgroundTab from './VirtualBackgroundTab';
 
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config'
+
 /**
  * The type of the React {@code Component} props of
  * {@link ConnectedSettingsDialog}.

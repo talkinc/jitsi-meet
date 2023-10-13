@@ -10,6 +10,10 @@ import {
     getTileDefaultAspectRatio
 } from '../filmstrip/functions.web';
 
+
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
+
 export * from './functions.any';
 
 /**

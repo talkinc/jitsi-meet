@@ -12,6 +12,9 @@ import { getMinHeightForQualityLvlMap } from '../video-quality/selector';
 
 import { LAYOUTS } from './constants';
 
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
+
 /**
  * A selector for retrieving the current automatic pinning setting.
  *

@@ -12,6 +12,9 @@ import { SETTINGS_TABS } from '../../../settings/constants';
 
 import ProfileButtonAvatar from './ProfileButtonAvatar';
 
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
+
 /**
  * The type of the React {@code Component} props of {@link ProfileButton}.
  */

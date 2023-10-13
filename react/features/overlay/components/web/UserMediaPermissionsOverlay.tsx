@@ -8,6 +8,9 @@ import AbstractUserMediaPermissionsOverlay, { abstractMapStateToProps }
     from './AbstractUserMediaPermissionsOverlay';
 import OverlayFrame from './OverlayFrame';
 
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
+
 /**
  * Implements a React Component for overlay with guidance how to proceed with
  * gUM prompt.

@@ -11,6 +11,9 @@ import { getToolboxHeight } from '../../../toolbox/functions.web';
 import VideoManager from './VideoManager';
 import YoutubeVideoManager from './YoutubeVideoManager';
 
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
+
 interface IProps {
 
     /**

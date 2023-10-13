@@ -23,6 +23,9 @@ import { getLargeVideoParticipant } from '../functions';
 
 import ScreenSharePlaceholder from './ScreenSharePlaceholder.web';
 
+// @ts-ignore
+import interfaceConfig from '../../../../interface_config';
+
 // Hack to detect Spot.
 const SPOT_DISPLAY_NAME = 'Meeting Room';
 

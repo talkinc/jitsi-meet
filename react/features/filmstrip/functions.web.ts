@@ -12,6 +12,7 @@ import {
 } from '../base/participants/functions';
 import { toState } from '../base/redux/functions';
 import { getHideSelfView } from '../base/settings/functions.any';
+// @ts-ignore
 import {
     getVideoTrackByParticipant,
     isLocalTrackMuted,
@@ -21,6 +22,9 @@ import { isTrackStreamingStatusActive } from '../connection-indicator/functions'
 import { isSharingStatus } from '../shared-video/functions';
 import { LAYOUTS } from '../video-layout/constants';
 import { getCurrentLayout, getNotResponsiveTileViewGridDimensions } from '../video-layout/functions.web';
+
+// @ts-ignore
+import interfaceConfig from '../../../interface_config';
 
 import {
     ASPECT_RATIO_BREAKPOINT,

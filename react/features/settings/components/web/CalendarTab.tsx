@@ -16,6 +16,9 @@ import { isCalendarEnabled } from '../../../calendar-sync/functions';
 import GoogleSignInButton from '../../../google-api/components/GoogleSignInButton';
 import logger from '../../logger';
 
+// @ts-ignore
+import interfaceConfig from '../../../../../interface_config';
+
 /**
  * The type of the React {@code Component} props of {@link CalendarTab}.
  */

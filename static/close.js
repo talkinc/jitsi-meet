@@ -1,5 +1,7 @@
 /* global interfaceConfig */
 // list of tips
+
+import interfaceConfig from '../interface_config';
 const hints = [
     'You can pin participants by clicking on their thumbnails.',
     'You can tell others you have something to say by using the "Raise Hand" '

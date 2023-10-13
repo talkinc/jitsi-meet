@@ -30,6 +30,9 @@ import InviteByEmailSection from './InviteByEmailSection';
 import InviteContactsSection from './InviteContactsSection';
 import LiveStreamSection from './LiveStreamSection';
 
+// @ts-ignore
+import interfaceConfig from '../../../../../../interface_config';
+
 interface IProps extends WithTranslation {
 
     /**
