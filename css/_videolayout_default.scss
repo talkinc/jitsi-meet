@@ -8,7 +8,8 @@
 #layout_wrapper {
     @include ltr;
     display: flex;
-    height: 100%;
+    height: 80%;
+    background: none !important;
 }
 
 #videospace {

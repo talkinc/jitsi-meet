@@ -59,6 +59,7 @@
 }
 
 .desktop-browser {
+    background: none !important;
     &.shift-right {
 
         @media only screen and (max-width: $verySmallScreen + $sidebarWidth) {

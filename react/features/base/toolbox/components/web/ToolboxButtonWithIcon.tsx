@@ -144,19 +144,19 @@ export default function ToolboxButtonWithIcon(props: IProps) {
             style = { styles }>
             {children}
 
-            <div>
-                <Tooltip
-                    containerClassName = { className }
-                    content = { iconTooltip }
-                    position = 'top'>
-                    <Icon
-                        { ...iconProps }
-                        ariaHasPopup = { ariaHasPopup }
-                        ariaLabel = { ariaLabel }
-                        size = { 16 }
-                        src = { icon } />
-                </Tooltip>
-            </div>
+            {/*<div>*/}
+            {/*    <Tooltip*/}
+            {/*        containerClassName = { className }*/}
+            {/*        content = { iconTooltip }*/}
+            {/*        position = 'top'>*/}
+            {/*        <Icon*/}
+            {/*            { ...iconProps }*/}
+            {/*            ariaHasPopup = { ariaHasPopup }*/}
+            {/*            ariaLabel = { ariaLabel }*/}
+            {/*            size = { 16 }*/}
+            {/*            src = { icon } />*/}
+            {/*    </Tooltip>*/}
+            {/*</div>*/}
         </div>
     );
 }

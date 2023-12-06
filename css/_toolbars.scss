@@ -30,6 +30,7 @@
  */
 .new-toolbox {
     bottom: calc((#{$newToolbarSize} * 2) * -1);
+    margin-bottom: -120px;
     left: 0;
     position: absolute;
     right: 0;

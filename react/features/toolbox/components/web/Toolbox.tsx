@@ -134,7 +134,7 @@ interface IProps extends WithTranslation {
     /**
      * Flag showing whether toolbar is visible.
      */
-    _visible: boolean;
+    // _visible: boolean;
 
     /**
      * Invoked to active other features of the app.
@@ -189,13 +189,13 @@ const Toolbox = ({
     _reactionsEnabled,
     _shiftUp,
     _toolbarButtons,
-    _visible,
     dispatch,
     t,
     toolbarButtons
 }: IProps) => {
     const { classes, cx } = useStyles();
     const _toolboxRef = useRef<HTMLDivElement>(null);
+    const _visible = true;
 
     useKeyboardShortcuts(toolbarButtons);
 
