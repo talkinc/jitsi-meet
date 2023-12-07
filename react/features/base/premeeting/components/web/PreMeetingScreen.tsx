@@ -181,7 +181,7 @@ const PreMeetingScreen = ({
     } : {};
 
     return (
-        <div className = { clsx('premeeting-screen', classes.container, className) }>
+        <div style={{width: '100%', borderRadius: 16, height: '101%', border: '1px solid white'}} className = { clsx('premeeting-screen', classes.container, className) }>
             <div style = { style }>
                 <div className = { classes.content }>
                     <ConnectionStatus />

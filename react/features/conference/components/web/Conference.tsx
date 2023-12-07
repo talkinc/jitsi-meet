@@ -211,6 +211,7 @@ class Conference extends AbstractConference<IProps, any> {
         return (
             <div
                 id = 'layout_wrapper'
+                style={{width: '99.8%'}}
                 onMouseEnter = { this._onMouseEnter }
                 onMouseLeave = { this._onMouseLeave }
                 onMouseMove = { this._onMouseMove }
@@ -224,6 +225,7 @@ class Conference extends AbstractConference<IProps, any> {
                     <Notice />
                     <div
                         id = 'videospace'
+                        style={{border: '1px solid white', borderRadius: 17}}
                         onTouchStart = { this._onVidespaceTouchStart }>
                         <LargeVideo />
                         {

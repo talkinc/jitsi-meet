@@ -57,12 +57,13 @@ function Preview(props: IProps) {
     }, []);
 
     return (
-        <div id = 'preview'>
+        <div id = 'preview' style={{borderRadius: 16}}>
             {!videoMuted && videoTrack
                 ? (
                     <Video
                         className = { className }
                         id = 'prejoinVideo'
+                        style={{borderRadius: '16px 0 0 16px'}}
                         videoTrack = {{ jitsiTrack: videoTrack }} />
                 )
                 : (
