@@ -145,7 +145,7 @@ class Conference extends AbstractConference<IProps, any> {
         this._onFullScreenChange = this._onFullScreenChange.bind(this);
         this._onVidespaceTouchStart = this._onVidespaceTouchStart.bind(this);
         this._setBackground = this._setBackground.bind(this);
-        this.state = {isChatOpen: false};
+        this.state = { isChatOpen: false };
     }
 
     /**

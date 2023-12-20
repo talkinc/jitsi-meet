@@ -147,6 +147,16 @@ class LargeVideo extends Component<IProps> {
         this._clearTapTimeout = this._clearTapTimeout.bind(this);
         this._onDoubleTap = this._onDoubleTap.bind(this);
         this._updateLayout = this._updateLayout.bind(this);
+        this.state = { isChatOpen: false };
+    }
+
+    componentDidMount() {
+        const handleChangeChatStatusEvent = (e) => {
+            this.setState({
+                isChatOpen: e.detail
+            })
+        }
+        window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
     }
 
     /**
@@ -195,6 +205,8 @@ class LargeVideo extends Component<IProps> {
             _showDominantSpeakerBadge,
             _whiteboardEnabled
         } = this.props;
+
+        const { isChatOpen } = this.state;
         const style = this._getCustomStyles();
         const className = `videocontainer${_isChatOpen ? ' shift-right' : ''}`;
 
@@ -232,6 +244,9 @@ class LargeVideo extends Component<IProps> {
                         id = 'largeVideoWrapper'
                         onTouchEnd = { this._onDoubleTap }
                         ref = { this._wrapperRef }
+                        style={{
+                            marginLeft: isChatOpen ? '-35%' : 'unset'
+                        }}
                         role = 'figure' >
                         { _displayScreenSharingPlaceholder ? <ScreenSharePlaceholder /> : <video
                             autoPlay = { !_noAutoPlayVideo }
