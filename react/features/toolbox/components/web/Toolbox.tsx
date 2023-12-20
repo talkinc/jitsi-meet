@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { WithTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -40,6 +40,7 @@ import { LeaveConferenceButton } from './LeaveConferenceButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import Separator from './Separator';
 import ConferenceTimer from "../../../conference/components/ConferenceTimer";
+import { IconMessage } from '../../../base/icons/svg';
 
 /**
  * The type of the React {@code Component} props of {@link Toolbox}.
@@ -373,6 +374,7 @@ const Toolbox = ({
             || overflowMenuButtons.some(({ key }) => key === 'reactions');
         const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
 
+        const [isChatOpen, setIsChatOpen] = useState(false);
 
         return (
             <div className = { containerClassName }>
@@ -391,6 +393,24 @@ const Toolbox = ({
                             width: 152,
                             height: 28,
                         }} />
+                        <div onClick={() => {
+                            const event = new CustomEvent('changeChatStatus', { detail: !isChatOpen });
+                            window.parent.document.dispatchEvent(event);
+                            setIsChatOpen(!isChatOpen);
+                        }}
+                            className = 'toolbox-icon'
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            <IconMessage style={{
+                                fill: 'white',
+                                width: 24
+                            }} />
+                        </div>
                         {shareScreen.map(({ Content, key, ...rest }) => Content !== Separator && (
                             <Content
                                 { ...rest }

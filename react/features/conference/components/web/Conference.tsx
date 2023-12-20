@@ -145,6 +145,7 @@ class Conference extends AbstractConference<IProps, any> {
         this._onFullScreenChange = this._onFullScreenChange.bind(this);
         this._onVidespaceTouchStart = this._onVidespaceTouchStart.bind(this);
         this._setBackground = this._setBackground.bind(this);
+        this.state = {isChatOpen: false};
     }
 
     /**
@@ -155,6 +156,12 @@ class Conference extends AbstractConference<IProps, any> {
     componentDidMount() {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
+        const handleChangeChatStatusEvent = (e) => {
+            this.setState({
+                isChatOpen: e.detail
+            })
+        }
+        window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
     }
 
     /**
@@ -208,10 +215,12 @@ class Conference extends AbstractConference<IProps, any> {
             t
         } = this.props;
 
+        const { isChatOpen } = this.state;
+
         return (
             <div
                 id = 'layout_wrapper'
-                style={{width: '99.8%'}}
+                style={{width: isChatOpen ? '60%' : '99.8%'}}
                 onMouseEnter = { this._onMouseEnter }
                 onMouseLeave = { this._onMouseLeave }
                 onMouseMove = { this._onMouseMove }

@@ -29,13 +29,13 @@
  * TODO: when the old filmstrip has been removed, remove the "new-" prefix.
  */
 .new-toolbox {
+    width: 100vw;
     bottom: calc((#{$newToolbarSize} * 2) * -1);
     margin-bottom: -120px;
     left: 0;
     position: absolute;
     right: 0;
     transition: bottom .3s ease-in;
-    width: 100%;
     pointer-events: none;
     z-index: $toolbarZ + 2;
 
@@ -48,6 +48,7 @@
     }
 
     &.visible {
+        width: 100vw;
         bottom: 0;
     }
 
