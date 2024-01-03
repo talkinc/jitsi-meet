@@ -8,7 +8,7 @@
 ## Docker compose
 
 1. `make build-web`
-2. `cd docker-jitsi-meet/web`
+2. `cd docker/web`
 3. `docker build . -t jitsi/web:talk` 
 4. `cd ..`
 5. `docker-compose up`

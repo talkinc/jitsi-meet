@@ -1,6 +1,6 @@
 BUILD_DIR = build
 CLEANCSS = ./node_modules/.bin/cleancss
-DOCKER_WEB = docker-jitsi-meet/web
+DOCKER_WEB = docker/web
 DEPLOY_DIR = libs
 LIBJITSIMEET_DIR = node_modules/lib-jitsi-meet
 OLM_DIR = node_modules/@matrix-org/olm
