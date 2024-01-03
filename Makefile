@@ -1,5 +1,6 @@
 BUILD_DIR = build
 CLEANCSS = ./node_modules/.bin/cleancss
+DOCKER_WEB = docker-jitsi-meet/web
 DEPLOY_DIR = libs
 LIBJITSIMEET_DIR = node_modules/lib-jitsi-meet
 OLM_DIR = node_modules/@matrix-org/olm
@@ -31,7 +32,8 @@ compile:
 	$(WEBPACK) --progress --mode production
 
 clean:
-	rm -fr $(BUILD_DIR)
+	rm -fr $(BUILD_DIR) && \
+	rm -fr $(DOCKER_WEB)/jitsi-meet
 
 .NOTPARALLEL:
 deploy: deploy-init deploy-appbundle deploy-rnnoise-binary deploy-excalidraw deploy-tflite deploy-meet-models deploy-lib-jitsi-meet deploy-olm deploy-tf-wasm deploy-css deploy-local deploy-face-landmarks
@@ -125,5 +127,7 @@ source-package:
 	mkdir -p source_package/jitsi-meet/css && \
 	cp -r *.js *.html resources/*.txt favicon.ico fonts images libs static sounds LICENSE lang source_package/jitsi-meet && \
 	cp css/all.css source_package/jitsi-meet/css && \
-	(cd source_package ; tar cjf ../jitsi-meet.tar.bz2 jitsi-meet) && \
+	cp -r source_package/jitsi-meet $(DOCKER_WEB) && \
 	rm -rf source_package
+
+build-web: clean all source-package

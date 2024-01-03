@@ -5,9 +5,10 @@
 1. `npm i`
 2. `npm start`
 
-## Make build archive
+## Docker compose
 
-1. `make clean`
-2. `make all`
-3. `make source-package`
-4. Finally, you have 'jitsi-meet.tar.bz2' (build archive). Go to the README.md file of the `talk-docker-jitsi-meet` repository to follow the rest of the instructions.
+1. `make build-web`
+2. `cd docker-jitsi-meet/web`
+3. `docker build . -t jitsi/web:talk`
+4. `cd ..`
+5. `docker-compose up`

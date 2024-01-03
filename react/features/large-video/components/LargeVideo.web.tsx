@@ -151,11 +151,12 @@ class LargeVideo extends Component<IProps> {
     }
 
     componentDidMount() {
-        const handleChangeChatStatusEvent = (e) => {
+        const handleChangeChatStatusEvent = (e: { detail: any; }) => {
             this.setState({
                 isChatOpen: e.detail
             })
         }
+        // @ts-ignore
         window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
     }
 
@@ -206,6 +207,7 @@ class LargeVideo extends Component<IProps> {
             _whiteboardEnabled
         } = this.props;
 
+        // @ts-ignore
         const { isChatOpen } = this.state;
         const style = this._getCustomStyles();
         const className = `videocontainer${_isChatOpen ? ' shift-right' : ''}`;
