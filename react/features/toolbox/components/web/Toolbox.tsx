@@ -374,7 +374,7 @@ const Toolbox = ({
             || overflowMenuButtons.some(({ key }) => key === 'reactions');
         const showRaiseHandInReactionsMenu = showReactionsInOverflowMenu && raiseHandInOverflowMenu;
 
-        const [isChatOpen, setIsChatOpen] = useState(false);
+        // @TODO: return iframe communication const [isChatOpen, setIsChatOpen] = useState(false);
 
         return (
             <div className = { containerClassName }>
@@ -394,9 +394,9 @@ const Toolbox = ({
                             height: 28,
                         }} />
                         <div onClick={() => {
-                            const event = new CustomEvent('changeChatStatus', { detail: !isChatOpen });
-                            window.parent.document.dispatchEvent(event);
-                            setIsChatOpen(!isChatOpen);
+                            // @TODO: return iframe communication const event = new CustomEvent('changeChatStatus', { detail: !isChatOpen });
+                            // window.parent.document.dispatchEvent(event);
+                            // setIsChatOpen(!isChatOpen);
                         }}
                             className = 'toolbox-icon'
                             style={{
