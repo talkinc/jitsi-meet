@@ -4,31 +4,10 @@ env:
 on:
   workflow_dispatch:
 jobs:
-  ecr_login:
-    name: Get ECR token
-    runs-on: ubuntu-20.04
-    outputs:
-      ecr_password: ${{ steps.retrieve_password.outputs.ecr_password }}
-    steps:
-       - name: Set up AWS CLI
-         uses: chrislennon/action-aws-cli@1.1
-       - id: retrieve_password
-         name: Retrieve ECR password and store as secret
-         env:
-           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-           AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
-         run: echo "::set-output name=ecr_password::$(aws ecr get-authorization-token --registry-ids 050758114062 --region eu-north-1 --output text --query 'authorizationData[*].[authorizationToken]' | base64 -d | awk -F'AWS:' '{print $2}' | awk '{print $1}')"
   build-and-push:
     needs: ecr_login
     name: Build and Push to ECR
     runs-on: ubuntu-20.04
-    container:
-      #Tag is located here https://github.com/talkinc/talk-infra-build-image
-      image: 050758114062.dkr.ecr.eu-north-1.amazonaws.com/build-image:v0.1.4
-      credentials:
-            username: AWS
-            password: ${{ needs.ecr_login.outputs.ecr_password }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,6 +24,11 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
         with:
           mask-password: 'true'
+
+      -   name: Install npm and nodejs
+          run: |
+              sudo apt update
+              sudo apt install nodejs npm -y
 
       - name: Build, Tag, and Push the Image to Amazon ECR
         id: build-image
