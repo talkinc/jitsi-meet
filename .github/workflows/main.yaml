@@ -1,4 +1,6 @@
 name: Build and Push Build Image to AWS ECR
+env:
+    AWS_REGION: "eu-north-1"
 on:
   workflow_dispatch:
 jobs:
@@ -15,7 +17,7 @@ jobs:
          env:
            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+           AWS_DEFAULT_REGION: ${{ env.AWS_REGION }}
          run: echo "::set-output name=ecr_password::$(aws ecr get-authorization-token --registry-ids 050758114062 --region eu-north-1 --output text --query 'authorizationData[*].[authorizationToken]' | base64 -d | awk -F'AWS:' '{print $2}' | awk '{print $1}')"
   build-and-push:
     needs: ecr_login
@@ -36,7 +38,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
