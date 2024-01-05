@@ -406,10 +406,10 @@ const Toolbox = ({
                                 cursor: 'pointer'
                             }}
                         >
-                            {/*<IconMessage style={{*/}
-                            {/*    fill: 'white',*/}
-                            {/*    width: 24*/}
-                            {/*}} />*/}
+                            <IconMessage style={{
+                                fill: 'white',
+                                width: 24
+                            }} />
                         </div>
                         {shareScreen.map(({ Content, key, ...rest }) => Content !== Separator && (
                             <Content
