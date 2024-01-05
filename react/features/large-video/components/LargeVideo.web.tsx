@@ -150,15 +150,7 @@ class LargeVideo extends Component<IProps> {
         this.state = { isChatOpen: false };
     }
 
-    componentDidMount() {
-        // @TODO: return iframe communication const handleChangeChatStatusEvent = (e: { detail: any; }) => {
-        //     this.setState({
-        //         isChatOpen: e.detail
-        //     })
-        // }
-        // // @ts-ignore
-        // window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
-    }
+    componentDidMount() {}
 
     /**
      * Implements {@code Component#componentDidUpdate}.

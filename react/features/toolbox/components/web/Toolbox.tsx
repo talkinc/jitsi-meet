@@ -394,9 +394,6 @@ const Toolbox = ({
                             height: 28,
                         }} />
                         <div onClick={() => {
-                            // @TODO: return iframe communication const event = new CustomEvent('changeChatStatus', { detail: !isChatOpen });
-                            // window.parent.document.dispatchEvent(event);
-                            // setIsChatOpen(!isChatOpen);
                         }}
                             className = 'toolbox-icon'
                             style={{

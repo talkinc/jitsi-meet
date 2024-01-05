@@ -156,13 +156,6 @@ class Conference extends AbstractConference<IProps, any> {
     componentDidMount() {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
-        // @TODO: return iframe communication const handleChangeChatStatusEvent = (e: { detail: any; }) => {
-        //     this.setState({
-        //         isChatOpen: e.detail
-        //     })
-        // }
-        // // @ts-ignore
-        // window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
     }
 
     /**
