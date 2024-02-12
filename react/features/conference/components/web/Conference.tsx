@@ -156,13 +156,14 @@ class Conference extends AbstractConference<IProps, any> {
     componentDidMount() {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
-        const handleChangeChatStatusEvent = (e: { detail: any; }) => {
-            this.setState({
-                isChatOpen: e.detail
-            })
+        const handleChangeChatStatusEvent = ({ data }) => {
+            if (data.type === 'chatStatus') {
+                this.setState({
+                    isChatOpen: data.value
+                })
+            }
         }
-        // @ts-ignore
-        window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
+        window.addEventListener("message", handleChangeChatStatusEvent);
     }
 
     /**

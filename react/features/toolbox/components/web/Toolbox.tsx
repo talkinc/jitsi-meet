@@ -394,8 +394,10 @@ const Toolbox = ({
                             height: 28,
                         }} />
                         <div onClick={() => {
-                            const event = new CustomEvent('changeChatStatus', { detail: !isChatOpen });
-                            window.parent.document.dispatchEvent(event);
+                            parent.postMessage({
+                                type: 'chatStatus',
+                                value: !isChatOpen
+                            }, "*");
                             setIsChatOpen(!isChatOpen);
                         }}
                             className = 'toolbox-icon'

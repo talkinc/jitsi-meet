@@ -151,13 +151,14 @@ class LargeVideo extends Component<IProps> {
     }
 
     componentDidMount() {
-        const handleChangeChatStatusEvent = (e: { detail: any; }) => {
-            this.setState({
-                isChatOpen: e.detail
-            })
+        const handleChangeChatStatusEvent = ({ data }) => {
+            if (data.type === 'chatStatus') {
+                this.setState({
+                    isChatOpen: data.value
+                })
+            }
         }
-        // @ts-ignore
-        window.parent.document.addEventListener('changeChatStatus', handleChangeChatStatusEvent, false);
+        window.addEventListener("message", handleChangeChatStatusEvent);
     }
 
     /**
