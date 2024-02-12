@@ -151,7 +151,7 @@ class LargeVideo extends Component<IProps> {
     }
 
     componentDidMount() {
-        const handleChangeChatStatusEvent = ({ data }) => {
+        const handleChangeChatStatusEvent = ({ data }: MessageEvent) => {
             if (data.type === 'chatStatus') {
                 this.setState({
                     isChatOpen: data.value
