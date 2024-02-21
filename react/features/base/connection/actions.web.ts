@@ -11,6 +11,7 @@ import LocalRecordingManager from '../../recording/components/Recording/LocalRec
 import { setJWT } from '../jwt/actions';
 
 import { _connectInternal } from './actions.any';
+import getRoomName from "../config/getRoomName";
 
 export * from './actions.any';
 
@@ -76,6 +77,9 @@ export function hangup(requestFeedback = false, feedbackTitle?: string) {
                 setTimeout(res, 1000);
             });
         }
+
+        const id = window.location.pathname.split('/').pop();
+        window.top.location.href = `https://web.talkdev1.gotalk.site/messenger/${id}`;
 
         return APP.conference.hangup(requestFeedback, feedbackTitle);
     };
