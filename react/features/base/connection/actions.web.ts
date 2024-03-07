@@ -78,11 +78,6 @@ export function hangup(requestFeedback = false, feedbackTitle?: string) {
             });
         }
 
-        const id = window.location.pathname.split('/').pop();
-        if (window?.top?.location?.href) {
-            window.top.location.href = `https://web.talkdev1.gotalk.site/messenger/${id}`;
-        }
-
         return APP.conference.hangup(requestFeedback, feedbackTitle);
     };
 }
