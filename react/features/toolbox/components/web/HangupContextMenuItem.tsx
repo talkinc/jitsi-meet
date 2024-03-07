@@ -52,6 +52,9 @@ export const HangupContextMenuItem = (props: IProps) => {
     const shouldPreventExecution = props.notifyMode === NOTIFY_CLICK_MODE.PREVENT_AND_NOTIFY;
 
     const _onClick = useCallback(() => {
+        parent.postMessage({
+            type: 'endCall',
+        }, "*");
         if (shouldNotify) {
             APP.API.notifyToolbarButtonClicked(props.buttonKey, shouldPreventExecution);
         }

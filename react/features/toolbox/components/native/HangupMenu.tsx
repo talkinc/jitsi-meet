@@ -30,31 +30,23 @@ function HangupMenu() {
         getLocalParticipant(state)?.role === PARTICIPANT_ROLE.MODERATOR);
     const { DESTRUCTIVE, SECONDARY } = BUTTON_TYPES;
 
-    const endCall = () => {
-        parent.postMessage({
-            type: 'endCall',
-        }, "*");
-    }
 
     const handleEndConference = useCallback(() => {
         dispatch(hideSheet());
         sendAnalytics(createToolbarEvent('endmeeting'));
         dispatch(endConference());
-        endCall();
     }, [ hideSheet ]);
 
     const handleLeaveConference = useCallback(() => {
         dispatch(hideSheet());
         sendAnalytics(createToolbarEvent('hangup'));
         dispatch(appNavigate(undefined));
-        endCall();
     }, [ hideSheet ]);
 
     const handleLeaveBreakoutRoom = useCallback(() => {
         dispatch(hideSheet());
         sendAnalytics(createBreakoutRoomsEvent('leave'));
         dispatch(moveToRoom());
-        endCall();
     }, [ hideSheet ]);
 
     return (
