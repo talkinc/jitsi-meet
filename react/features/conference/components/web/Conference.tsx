@@ -161,22 +161,23 @@ class Conference extends AbstractConference<IProps, any> {
      *
      * @inheritdoc
      */
-    componentDidMount() {
+    componentDidMount(this: any) {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
-        function handleChangeChatStatusEvent ({ data }: MessageEvent) {
-            if (data?.type === 'chatStatus') {
-                this?.setState({
-                    isChatOpen: data.value
-                })
-            }
-        }
 
-        function handleResize() {
-            this?.setState({
+        const handleChangeChatStatusEvent = ({ data }: MessageEvent) => {
+            if (data?.type === 'chatStatus') {
+                this.setState({
+                    isChatOpen: data.value
+                });
+            }
+        };
+
+        const handleResize = () => {
+            this.setState({
                 windowDimension: getWindowDimensions()
-            })
-        }
+            });
+        };
 
         window.addEventListener('resize', handleResize);
         window.addEventListener("message", handleChangeChatStatusEvent);
