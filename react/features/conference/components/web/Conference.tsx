@@ -53,6 +53,14 @@ const FULL_SCREEN_EVENTS = [
     'fullscreenchange'
 ];
 
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height,
+    };
+}
+
 /**
  * The type of the React {@code Component} props of {@link Conference}.
  */
@@ -145,7 +153,7 @@ class Conference extends AbstractConference<IProps, any> {
         this._onFullScreenChange = this._onFullScreenChange.bind(this);
         this._onVidespaceTouchStart = this._onVidespaceTouchStart.bind(this);
         this._setBackground = this._setBackground.bind(this);
-        this.state = { isChatOpen: false };
+        this.state = { isChatOpen: false, windowDimension: getWindowDimensions() };
     }
 
     /**
@@ -157,12 +165,20 @@ class Conference extends AbstractConference<IProps, any> {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
         const handleChangeChatStatusEvent = ({ data }: MessageEvent) => {
-            if (data.type === 'chatStatus') {
+            if (data?.type === 'chatStatus') {
                 this.setState({
                     isChatOpen: data.value
                 })
             }
         }
+
+        function handleResize() {
+            this.setState({
+                windowDimension: getWindowDimensions()
+            })
+        }
+
+        window.addEventListener('resize', handleResize);
         window.addEventListener("message", handleChangeChatStatusEvent);
     }
 
@@ -217,12 +233,29 @@ class Conference extends AbstractConference<IProps, any> {
             t
         } = this.props;
 
-        const { isChatOpen } = this.state;
+        const { isChatOpen, windowDimension } = this.state;
+        const { width } = windowDimension;
+        const getContainerWidth = () => {
+            return (isChatOpen && width > 940) ? '60%' : '99.8%'
+        }
+
+        const getContainerHeight = () => {
+            if (isChatOpen && width < 940) {
+                return '450px'
+            }
+            if (!isChatOpen && width > 940) {
+                return '80vh'
+            }
+            return '78%'
+        }
 
         return (
             <div
                 id = 'layout_wrapper'
-                style={{width: isChatOpen ? '60%' : '99.8%'}}
+                style={{
+                    width: getContainerWidth(),
+                    height: getContainerHeight()
+                }}
                 onMouseEnter = { this._onMouseEnter }
                 onMouseLeave = { this._onMouseLeave }
                 onMouseMove = { this._onMouseMove }

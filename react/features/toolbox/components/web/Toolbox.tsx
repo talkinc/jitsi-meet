@@ -197,6 +197,32 @@ const Toolbox = ({
     const { classes, cx } = useStyles();
     const _toolboxRef = useRef<HTMLDivElement>(null);
     const _visible = true;
+    const [isChatOpen, setIsChatOpen] = useState(false);
+
+    function getWindowDimensions() {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+            width,
+            height,
+        };
+    }
+
+    const [windowDimension, setWindowDimension] = useState(getWindowDimensions());
+
+    useEffect(() => {
+        const handleChangeChatStatusEvent = ({ data }: MessageEvent) => {
+            if (data?.type === 'chatStatus') {
+                setIsChatOpen(data.value)
+            }
+        }
+
+        function handleResize() {
+            setWindowDimension(getWindowDimensions());
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener("message", handleChangeChatStatusEvent);
+    }, []);
 
     useKeyboardShortcuts(toolbarButtons);
 
@@ -516,8 +542,13 @@ const Toolbox = ({
     const rootClassNames = `new-toolbox ${_visible ? 'visible' : ''} ${
         _toolbarButtons.length ? '' : 'no-buttons'} ${_chatOpen ? 'shift-right' : ''}`;
 
+    const { width } = windowDimension;
+
     return (
         <div
+            style={{
+                marginBottom: (width < 940 && isChatOpen) ? '-720px' : '-120px'
+            }}
             className = { cx(rootClassNames, _shiftUp && 'shift-up') }
             id = 'new-toolbox'>
             {renderToolboxContent()}
