@@ -236,7 +236,7 @@ class Conference extends AbstractConference<IProps, any> {
         const { isChatOpen, windowDimension } = this.state;
         const { width } = windowDimension;
         const getContainerWidth = () => {
-            return (isChatOpen && width > 940) ? '60%' : '99.8%'
+            return (isChatOpen && width > 1140) ? '60%' : '99.8%'
         }
 
         const getContainerHeight = () => {

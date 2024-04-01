@@ -547,7 +547,7 @@ const Toolbox = ({
     return (
         <div
             style={{
-                marginBottom: (width < 940 && isChatOpen) ? '-720px' : '-120px'
+                marginBottom: (width < 1140 && isChatOpen) ? '-720px' : '-120px'
             }}
             className = { cx(rootClassNames, _shiftUp && 'shift-up') }
             id = 'new-toolbox'>
