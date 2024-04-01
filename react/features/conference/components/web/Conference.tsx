@@ -164,7 +164,7 @@ class Conference extends AbstractConference<IProps, any> {
     componentDidMount() {
         document.title = `${this.props._roomName} | ${interfaceConfig.APP_NAME}`;
         this._start();
-        const handleChangeChatStatusEvent = ({ data }: MessageEvent) => {
+        function handleChangeChatStatusEvent ({ data }: MessageEvent) {
             if (data?.type === 'chatStatus') {
                 this?.setState({
                     isChatOpen: data.value
