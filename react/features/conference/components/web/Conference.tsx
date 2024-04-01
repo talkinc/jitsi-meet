@@ -166,14 +166,14 @@ class Conference extends AbstractConference<IProps, any> {
         this._start();
         const handleChangeChatStatusEvent = ({ data }: MessageEvent) => {
             if (data?.type === 'chatStatus') {
-                this.setState({
+                this?.setState({
                     isChatOpen: data.value
                 })
             }
         }
 
         function handleResize() {
-            this.setState({
+            this?.setState({
                 windowDimension: getWindowDimensions()
             })
         }
