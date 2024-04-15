@@ -287,9 +287,9 @@ const defaultStyles = (theme: Theme) => {
         },
 
         indicatorsBackground: {
+            display: 'none',
             backgroundColor: 'rgba(0, 0, 0, 0.7)',
             borderRadius: '4px',
-            display: 'flex',
             alignItems: 'center',
             maxWidth: '100%',
             overflow: 'hidden',
